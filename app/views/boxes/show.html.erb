@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="is-size-1"><%= @box.bid %></h1>
+
+<div class="box">
+  <%= simple_format @box.description %>
+</div>
+
+
+<% @box.items.each do |item| %>
+  <%= render "items/item" , item: item %>
+<% end %>
+
+<%= render "items/form", item: Item.new(box: @box) %>
+
+
+<div>
+  <%= link_to "Edit this box", edit_box_path(@box) %> |
+  <%= link_to "Back to boxes", boxes_path %>
+
+  <%= button_to "Destroy this box", @box, method: :delete %>
+</div>

@@ -1,0 +1,29 @@
+<%= form_with(model: item, class: "box") do |form| %>
+  <%= form.hidden_field :box_id %>
+
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <%= link_to "back to box", box_path(item.box) %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: "label is-hidden" %>
+    <%= form.text_field :title, class: "input", placeholder: "Topanky" %>
+  </div>
+
+<%= form.file_field :image %>
+
+
+  <div>
+    <%= form.button class: "button" %>
+  </div>
+<% end %>

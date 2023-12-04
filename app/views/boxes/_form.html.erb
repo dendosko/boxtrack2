@@ -1,0 +1,41 @@
+<%= form_with(model: box) do |form| %>
+  <% if box.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(box.errors.count, "error") %> prohibited this box from being saved:</h2>
+
+      <ul>
+        <% box.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bid, style: "display: block", class: "label" %>
+    <div class="control">
+      <%= form.text_field :bid, class: "input", placeholder:"B099" %>
+    </div>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= form.label :description, style: "display: block", class: "label" %>
+    <div class="controll">
+      <%= form.text_area :description, class: "textarea", placeholder: "what's in the box" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.button "OK", class: "button is-primary" %>
+  </div>
+<% end %>
+
+
+
+
+
+
+

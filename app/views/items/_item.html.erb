@@ -1,0 +1,6 @@
+<div id="<%= dom_id item %>" class="box is-flex is-justify-content-space-between ">
+    <%= image_tag item.image.variant(resize_to_limit: [100, 100]) if item.image.attached? %>
+
+  <%= item.title %>
+  <%= link_to 'Edit', edit_item_path(item) %>
+</div>
